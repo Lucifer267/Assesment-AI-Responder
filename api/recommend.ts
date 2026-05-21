@@ -47,7 +47,7 @@ Return a structured JSON output exactly matching this format:
   ]
 }`;
 
-    const respopenai/onse = await openai.chat.completions.create({
+    const response = await openai.chat.completions.create({
       model: 'gpt-4o-mini',
       messages: [
         { role: 'system', content: systemPrompt },
