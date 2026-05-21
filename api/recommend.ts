@@ -115,6 +115,15 @@ Return a structured JSON output exactly matching this format:
       return res.json({ recommendations });
     }
 
-    res.status(500).json({ error: 'Failed to get recommendations' });
+    // Enhanced error response for debugging
+    res.status(500).json({
+      error: 'Failed to get recommendations',
+      details: {
+        message: error?.message,
+        status: error?.status || error?.response?.status,
+        stack: error?.stack,
+        responseData: error?.response?.data,
+      },
+    });
   }
 }
